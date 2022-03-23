@@ -618,7 +618,6 @@ h6 {
 }
 
 .form--control:focus {
-    color: #fff;
     border: 1px solid rgba(39, 107, 255, 0.6);
     outline: 0;
     box-shadow: none;
@@ -1226,4 +1225,88 @@ select.style--dark option {
 
 .header-trigger span::before {
     top: -8px;
+}
+
+body {
+    background: #7367f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.range-slider-wrapper {
+    width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.range-header .title {
+    margin-bottom: 25px;
+}
+
+.price-input-wrapper {
+    gap: 10px 25px;
+    margin: 15px 0 30px;
+}
+
+.price-area span {
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.price-slider {
+    position: relative;
+    height: 5px;
+    border-radius: 5px;
+    background: #dde;
+    position: relative;
+}
+
+.price-slider .progress {
+    height: 5px;
+    background: #7367f0;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    border-radius: 5px;
+}
+
+.price-range-input {
+    position: relative;
+}
+
+.price-range-input input[type=range] {
+    position: absolute;
+    height: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    top: -5px;
+    width: 100%;
+    background: none;
+    pointer-events: none;
+}
+
+.price-range-input input[type=range]::-webkit-slider-thumb {
+    pointer-events: auto;
+    width: 17px;
+    aspect-ratio: 1;
+    background: #7367f0;
+    -moz-appearance: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 25px 3px #7367f0;
+}
+
+.price-range-input input[type=range]::-moz-range-thumb {
+    pointer-events: auto;
+    width: 17px;
+    aspect-ratio: 1;
+    background: #7367f0;
+    -moz-appearance: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 25px 3px #7367f0;
 }

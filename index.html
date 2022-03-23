@@ -27,13 +27,62 @@
 </head>
 
 <body>
-    
-    
+
+    <div class="range-slider-wrapper">
+        <div class="range-header">
+            <h4 class="title">Price Range</h4>
+        </div>
+        <div class="price-input-wrapper d-flex flex-wrap">
+            <div class="price-area">
+                <span class="text--base">Min</span>
+                <input type="number" class="form-control form--control input-min" id="price-min" value="2500">
+            </div>
+            <div class="price-area">
+                <span class="text--base">Max</span>
+                <input type="number" class="form-control form--control input-max" id="price-max" value="25500">
+            </div>
+        </div>
+        <div class="slider price-slider" id="slider">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="price-range-input">
+            <input type="range" name="" id="" class="range-min" min="0" max="10000" value="0">
+            <input type="range" name="" id="" class="range-max" min="0" max="10000" value="25500">
+        </div>
+    </div>
 
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/slick.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+
+
+
+        const inputRange = document.querySelectorAll(".price-range-input input"),
+            progress = document.getElementById("progress"),
+            priceMin = document.getElementById("price-min"),
+            priceMax = document.getElementById("price-max");
+        inputRange.forEach(input => {
+            input.addEventListener("input", e => {
+                let minVal = parseInt(inputRange[0].value),
+                    maxVal = parseInt(inputRange[1].value),
+                    priceGap = 100;
+                if ((maxVal - minVal) < priceGap) {
+                    if (e.target.className === "range-min") {
+                        inputRange[0].value = maxVal - priceGap;
+                    } else {
+                        inputRange[1].value = minVal + priceGap;
+                    }
+                } else {
+                    progress.style.left = (minVal / inputRange[0].max) * 100 + "%";
+                    progress.style.right = 100 - ((maxVal / inputRange[1].max) * 100) + "%";
+                    priceMin.value = minVal;
+                    priceMax.value = maxVal;
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
